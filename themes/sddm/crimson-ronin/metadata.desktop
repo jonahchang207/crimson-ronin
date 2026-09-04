@@ -1,0 +1,15 @@
+[SddmGreeterTheme]
+Name=Crimson Ronin
+Description=Smoked obsidian SDDM theme with restrained crimson accents
+Author=Codex for corund
+Copyright=(c) 2026
+License=CC-BY-SA
+Type=sddm-theme
+Version=1.0
+Website=
+Screenshot=
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=
+Theme-Id=crimson-ronin
+Theme-API=2.0

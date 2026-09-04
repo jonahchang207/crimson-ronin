@@ -1,0 +1,37 @@
+# CRIMSON RONIN // smoked obsidian terminal
+font-family = JetBrainsMono Nerd Font
+font-size = 11.5
+font-thicken = false
+
+background = 08080b
+foreground = f5f2ef
+background-opacity = 0.78
+
+cursor-color = ff2938
+cursor-text = 050506
+selection-background = 35070b
+selection-foreground = f5f2ef
+
+palette = 0=#0A0A0D
+palette = 1=#A70E18
+palette = 2=#78917A
+palette = 3=#C49A62
+palette = 4=#74859C
+palette = 5=#9D6C78
+palette = 6=#708A8C
+palette = 7=#D8D3CF
+palette = 8=#4B484B
+palette = 9=#FF2938
+palette = 10=#91A892
+palette = 11=#D2B17C
+palette = 12=#93A3B7
+palette = 13=#B88795
+palette = 14=#8FA8AA
+palette = 15=#F5F2EF
+
+window-padding-x = 16
+window-padding-y = 14
+window-decoration = false
+window-theme = ghostty
+confirm-close-surface = false
+shell-integration-features = cursor,sudo,title

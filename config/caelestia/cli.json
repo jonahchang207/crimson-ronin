@@ -1,0 +1,15 @@
+{
+  "theme": {
+    "enableTerm": true,
+    "enableHypr": true,
+    "enableGtk": true,
+    "enableQt": true,
+    "enableChromium": true,
+    "enableBtop": true,
+    "enableHtop": true,
+    "enableCava": true,
+    "iconTheme": "Papirus-Dark",
+    "iconThemeLight": "Papirus-Light",
+    "iconThemeDark": "Papirus-Dark"
+  }
+}

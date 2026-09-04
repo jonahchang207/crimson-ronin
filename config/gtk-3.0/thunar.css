@@ -1,0 +1,16 @@
+.thunar.background { background: #0A0A0D; color: #F5F2EF; }
+.thunar .titlebar { background: #08080B; color: #F5F2EF; border-bottom: 1px solid #19191F; }
+.thunar .frame.standard-view { margin: 8px 12px 0 0; border: 1px solid #19191F; border-radius: 12px; background: alpha(#0D0D11, 0.94); }
+.thunar .frame.standard-view .view { background: transparent; color: #D8D3CF; }
+.thunar .frame.standard-view .view:selected { background: alpha(#A70E18, 0.30); color: #F5F2EF; }
+.thunar .rubberband { background: alpha(#E21A28, 0.12); border: 1px solid alpha(#E21A28, 0.42); }
+.thunar .sidebar { padding: 4px 12px; background: alpha(#08080B, 0.96); border-right: 1px solid #19191F; }
+.thunar .sidebar .view { padding: 7px 5px; border-radius: 8px; background: transparent; color: #90898B; }
+.thunar .sidebar .view:hover { background: alpha(#F5F2EF, 0.05); color: #D8D3CF; }
+.thunar .sidebar .view:selected { background: alpha(#A70E18, 0.22); color: #F5F2EF; box-shadow: inset 2px 0 #E21A28; }
+.thunar .path-bar-button { padding: 7px 6px; border-radius: 8px; }
+.thunar .path-bar-button.toggle:checked { background: alpha(#A70E18, 0.24); color: #F5F2EF; }
+.thunar header.top tabs .reorderable-page { border-radius: 8px 8px 0 0; color: #90898B; }
+.thunar header.top tabs .reorderable-page:hover { background: alpha(#F5F2EF, 0.04); color: #D8D3CF; }
+.thunar header.top tabs .reorderable-page:checked { background: alpha(#A70E18, 0.18); color: #F5F2EF; box-shadow: inset 0 -2px #E21A28; }
+.thunar statusbar { background: #0D0D11; color: #90898B; border-top: 1px solid #19191F; padding: 7px 10px; }

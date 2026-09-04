@@ -1,0 +1,7 @@
+.thunar.background { background: #0A0A0D; color: #F5F2EF; }
+.thunar .titlebar { background: #08080B; color: #F5F2EF; border-bottom: 1px solid #19191F; }
+.thunar .frame.standard-view { margin: 8px 12px 0 0; border: 1px solid #19191F; border-radius: 12px; background: alpha(#0D0D11, 0.94); }
+.thunar .frame.standard-view .view { background: transparent; color: #D8D3CF; }
+.thunar .frame.standard-view .view:selected { background: alpha(#A70E18, 0.30); color: #F5F2EF; }
+.thunar .sidebar { padding: 4px 12px; background: #08080B; border-right: 1px solid #19191F; }
+.thunar .sidebar .view:selected { background: alpha(#A70E18, 0.22); color: #F5F2EF; box-shadow: inset 2px 0 #E21A28; }

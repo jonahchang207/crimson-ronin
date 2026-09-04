@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+state="${XDG_STATE_HOME:-$HOME/.local/state}/crimson-ronin/backups"
+backup="${1:-}"
+
+if [[ -z "$backup" ]]; then
+    backup="$(find "$state" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' 2>/dev/null | sort -r | head -1)"
+fi
+
+[[ -n "$backup" && -d "$state/$backup" ]] || {
+    printf 'No matching Crimson Ronin backup was found.\n' >&2
+    exit 1
+}
+
+printf 'Restore user files from %s?\n' "$state/$backup"
+read -r -p 'This overwrites matching current files [y/N] ' answer
+[[ "$answer" =~ ^[Yy]$ ]] || exit 0
+
+if [[ -d "$state/$backup/.config" ]]; then
+    rsync -a "$state/$backup/.config/" "$HOME/.config/"
+fi
+if [[ -d "$state/$backup/.local" ]]; then
+    rsync -a "$state/$backup/.local/" "$HOME/.local/"
+fi
+
+printf 'Restored user configuration. Log out and back in to apply it.\n'

@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Crimson Ronin — Obsidian Glass",
+  "version": "1.0.0",
+  "description": "Permission-free black, graphite and restrained crimson browser chrome.",
+  "theme": {
+    "images": {
+      "theme_ntp_background": "background.png"
+    },
+    "colors": {
+      "frame": [5, 5, 6],
+      "frame_inactive": [10, 10, 13],
+      "frame_incognito": [5, 5, 6],
+      "frame_incognito_inactive": [10, 10, 13],
+      "toolbar": [10, 10, 13],
+      "toolbar_text": [245, 242, 239],
+      "toolbar_button_icon": [216, 211, 207],
+      "bookmark_text": [216, 211, 207],
+      "tab_text": [245, 242, 239],
+      "tab_background_text": [144, 137, 139],
+      "tab_background_text_inactive": [112, 106, 108],
+      "omnibox_background": [17, 17, 22],
+      "omnibox_text": [245, 242, 239],
+      "ntp_background": [5, 5, 6],
+      "ntp_text": [245, 242, 239],
+      "ntp_link": [226, 26, 40],
+      "ntp_header": [17, 17, 22],
+      "button_background": [53, 7, 11]
+    },
+    "tints": {
+      "buttons": [-1, -1, -1],
+      "frame": [-1, -1, -1],
+      "frame_inactive": [-1, -1, -1]
+    },
+    "properties": {
+      "ntp_background_alignment": "center",
+      "ntp_background_repeat": "no-repeat"
+    }
+  }
+}

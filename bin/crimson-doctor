@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+quiet=0
+[[ "${1:-}" == "--quiet" ]] && quiet=1
+failures=0
+
+pass() { ((quiet)) || printf 'ok   %s\n' "$*"; }
+fail() { printf 'FAIL %s\n' "$*" >&2; failures=$((failures + 1)); }
+
+required=(
+    install.sh
+    boot.sh
+    install-arch.sh
+    VERSION
+    config/hypr/hyprland.lua
+    config/hypr/hyprlock.conf
+    config/caelestia/shell.json
+    config/ghostty/config
+    config/fastfetch/config.jsonc
+    themes/helium/manifest.json
+    themes/sddm/crimson-ronin/Main.qml
+    assets/crimson-ronin-4k.png
+)
+
+for path in "${required[@]}"; do
+    [[ -e "$ROOT/$path" ]] || fail "missing $path"
+done
+((failures)) || pass "required files"
+
+while IFS= read -r script; do
+    bash -n "$script" || fail "syntax: ${script#"$ROOT"/}"
+done < <(find "$ROOT" -type f -name '*.sh' -o -type f -path '*/bin/crimson-*')
+((failures)) || pass "shell syntax"
+
+json_failures=0
+if command -v python >/dev/null; then
+    while IFS= read -r json; do
+        if ! python -m json.tool "$json" >/dev/null; then
+            fail "json: ${json#"$ROOT"/}"
+            json_failures=$((json_failures + 1))
+        fi
+    done < <(find "$ROOT/config" "$ROOT/state" "$ROOT/themes/helium" -type f \
+        \( -name '*.json' -o -name '*.jsonc' \))
+    ((json_failures)) || pass "JSON configuration"
+fi
+
+if rg -n '/home/[[:alnum:]_-]+/' "$ROOT" --glob '!docs/**' --glob '!*.png' --glob '!*.svg' >/dev/null; then
+    fail "repository contains a hard-coded home directory"
+else
+    pass "portable paths"
+fi
+
+if rg -n '@180([.]0+)?([,[:space:]]|$)' "$ROOT/config/hypr/hyprland.lua" >/dev/null; then
+    fail "unsafe 180 Hz monitor setting found"
+else
+    pass "no 180 Hz configuration"
+fi
+
+if rg -q '1920x1080@144' "$ROOT/config/hypr/hyprland.lua"; then
+    pass "DP-1 144 Hz invariant"
+else
+    fail "DP-1 144 Hz invariant missing"
+fi
+
+if [[ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]] && command -v hyprctl >/dev/null; then
+    errors="$(hyprctl configerrors)"
+    [[ -z "$errors" ]] && pass "live Hyprland configuration" || fail "Hyprland: $errors"
+fi
+
+if [[ -f /etc/sddm.conf ]] && grep -q '^Current=crimson-ronin$' /etc/sddm.conf; then
+    pass "live SDDM selector"
+fi
+
+if ((failures)); then
+    printf '\n%d check(s) failed.\n' "$failures" >&2
+    exit 1
+fi
+
+((quiet)) || printf '\nCrimson Ronin is coherent.\n'

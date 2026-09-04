@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+CRIMSON_OFFICIAL_PACKAGES=(
+    base-devel
+    bash
+    bluez
+    bluez-utils
+    brightnessctl
+    cliphist
+    curl
+    fastfetch
+    file-roller
+    git
+    github-cli
+    gnupg
+    grim
+    gvfs
+    ghostty
+    hypridle
+    hyprland
+    hyprlock
+    kvantum
+    networkmanager
+    noto-fonts
+    noto-fonts-emoji
+    papirus-icon-theme
+    pipewire
+    pipewire-audio
+    pipewire-pulse
+    playerctl
+    polkit-gnome
+    qt6ct
+    rsync
+    sddm
+    slurp
+    swappy
+    thunar
+    thunar-archive-plugin
+    tumbler
+    ttf-jetbrains-mono-nerd
+    wireplumber
+    wl-clipboard
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
+    xdg-user-dirs
+    xdg-utils
+    xorg-xwayland
+    xz
+)
+
+CRIMSON_AUR_PACKAGES=(
+    caelestia-shell
+)

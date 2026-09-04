@@ -1,0 +1,57 @@
+{
+  "general": {
+    "logo": "__HOME__/.local/share/crimson-ronin/assets/ronin-mark.svg",
+    "showOverFullscreen": false,
+    "apps": {
+      "terminal": ["ghostty"],
+      "browser": ["helium"],
+      "explorer": ["thunar"]
+    }
+  },
+  "appearance": {
+    "deformScale": 0.76,
+    "anim": { "durations": { "scale": 0.68 } },
+    "rounding": { "scale": 0.88 },
+    "spacing": { "scale": 0.86 },
+    "padding": { "scale": 0.88 },
+    "transparency": { "enabled": true, "base": 0.74, "layers": 0.20 }
+  },
+  "border": { "thickness": 1, "rounding": 16, "smoothing": 1 },
+  "bar": {
+    "persistent": true,
+    "showOnHover": false,
+    "workspaces": {
+      "shown": 10,
+      "activeIndicator": true,
+      "occupiedBg": false,
+      "showWindows": false,
+      "maxWindowIcons": 0,
+      "activeTrail": false
+    },
+    "tray": { "background": false, "compact": true },
+    "clock": { "background": false }
+  },
+  "launcher": {
+    "enabled": true,
+    "showOnHover": false,
+    "maxShown": 7,
+    "enableDangerousActions": false,
+    "vimKeybinds": true
+  },
+  "dashboard": {
+    "enabled": true,
+    "showOnHover": false,
+    "showDashboard": true,
+    "showMedia": false,
+    "showPerformance": true,
+    "showWeather": false,
+    "resourceUpdateInterval": 2000
+  },
+  "notifs": {
+    "expire": true,
+    "defaultExpireTimeout": 5000,
+    "fullscreenExpireTimeout": 1800,
+    "groupPreviewNum": 2,
+    "openExpanded": false
+  }
+}

@@ -1,0 +1,22 @@
+[Desktop Entry]
+Version=1.0
+Name=Helium
+GenericName=Web Browser
+Comment=Private Chromium-based web browser
+Exec=__HOME__/.local/bin/helium %U
+TryExec=__HOME__/.local/bin/helium
+StartupNotify=true
+Terminal=false
+Icon=helium
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=application/pdf;application/xhtml+xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;
+Actions=new-window;new-private-window;
+
+[Desktop Action new-window]
+Name=New Window
+Exec=__HOME__/.local/bin/helium
+
+[Desktop Action new-private-window]
+Name=New Private Window
+Exec=__HOME__/.local/bin/helium --incognito
