@@ -72,6 +72,29 @@ fi
 
 if [[ -f /etc/sddm.conf ]] && grep -q '^Current=crimson-ronin$' /etc/sddm.conf; then
     pass "live SDDM selector"
+    live_sddm_metadata="/usr/share/sddm/themes/crimson-ronin/metadata.desktop"
+    if [[ -f "$live_sddm_metadata" ]]; then
+        if grep -q '^QtVersion=6$' "$live_sddm_metadata"; then
+            pass "live SDDM Qt 6 selector"
+        else
+            fail "installed SDDM theme does not declare QtVersion=6"
+        fi
+    fi
+fi
+
+sddm_metadata="$ROOT/themes/sddm/crimson-ronin/metadata.desktop"
+if grep -q '^QtVersion=6$' "$sddm_metadata"; then
+    pass "SDDM Qt 6 selector"
+else
+    fail "SDDM theme must declare QtVersion=6"
+fi
+
+if [[ -x /usr/bin/sddm-greeter-qt6 ]]; then
+    if ldd /usr/bin/sddm-greeter-qt6 2>/dev/null | grep -q 'not found'; then
+        fail "Qt 6 SDDM greeter has unresolved libraries"
+    else
+        pass "Qt 6 SDDM runtime"
+    fi
 fi
 
 if ((failures)); then

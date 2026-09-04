@@ -13,3 +13,4 @@ ConfigFile=theme.conf
 TranslationsDirectory=
 Theme-Id=crimson-ronin
 Theme-API=2.0
+QtVersion=6

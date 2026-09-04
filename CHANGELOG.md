@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 — 2026-09-04
+
+- Declared the SDDM theme as Qt 6 so the daemon selects `sddm-greeter-qt6`.
+- Added diagnostics for the theme selector and unresolved Qt 6 greeter libraries.
+
 ## 0.1.0 — 2026-09-04
 
 - Introduced the Crimson Ronin red–black liquid-glass visual system.
