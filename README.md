@@ -7,7 +7,7 @@ restrained crimson light, and Japanese cinematic composition. It keeps the
 desktop practical: native Wayland, compact controls, opaque fullscreen games,
 and no decorative background processes.
 
-Release **0.1.1** targets x86_64 Arch Linux and Hyprland’s Lua configuration.
+Release **0.1.2** targets x86_64 Arch Linux and Hyprland’s Lua configuration.
 
 ![Crimson Ronin login screen](docs/screenshots/sddm.png)
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2 — 2026-09-04
+
+- Disabled the SDDM virtual-keyboard input method.
+- Added a diagnostic that rejects future virtual-keyboard overrides.
+- Kept the change recoverable by retaining the previous override as a disabled file.
+
 ## 0.1.1 — 2026-09-04
 
 - Declared the SDDM theme as Qt 6 so the daemon selects `sddm-greeter-qt6`.

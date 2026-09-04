@@ -40,13 +40,20 @@ crimson_enable_services() {
 crimson_install_sddm() {
     local source="$CRIMSON_ROOT/themes/sddm/crimson-ronin"
     local destination="/usr/share/sddm/themes/crimson-ronin"
+    local virtual_keyboard_config="/etc/sddm.conf.d/virtualkbd.conf"
 
     crimson_log "Installing the Crimson Ronin login screen"
     [[ -f "$source/Main.qml" ]] || crimson_die "SDDM theme assets are missing."
     if [[ "$CRIMSON_DRY_RUN" == 1 ]]; then
         crimson_note "install $source -> $destination"
         crimson_note "set Current=crimson-ronin in /etc/sddm.conf"
+        crimson_note "disable the SDDM virtual-keyboard override when present"
         return 0
+    fi
+
+    if [[ -f "$virtual_keyboard_config" ]]; then
+        sudo mv --backup=numbered "$virtual_keyboard_config" \
+            "$virtual_keyboard_config.disabled-by-crimson-ronin"
     fi
 
     sudo install -d -m 0755 "$destination"

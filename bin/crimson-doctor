@@ -97,6 +97,21 @@ if [[ -x /usr/bin/sddm-greeter-qt6 ]]; then
     fi
 fi
 
+virtual_keyboard_enabled=0
+if grep -q '^InputMethod=qtvirtualkeyboard$' /etc/sddm.conf 2>/dev/null; then
+    virtual_keyboard_enabled=1
+elif find /etc/sddm.conf.d -maxdepth 1 -type f -name '*.conf' \
+    -exec grep -q '^InputMethod=qtvirtualkeyboard$' {} \; -print -quit \
+    2>/dev/null | grep -q .; then
+    virtual_keyboard_enabled=1
+fi
+
+if ((virtual_keyboard_enabled)); then
+    fail "SDDM virtual keyboard is enabled"
+else
+    pass "SDDM virtual keyboard disabled"
+fi
+
 if ((failures)); then
     printf '\n%d check(s) failed.\n' "$failures" >&2
     exit 1
